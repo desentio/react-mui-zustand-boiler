@@ -25,7 +25,7 @@ Recreate the folowing screen and make sure the value of the inpuds is synced to 
 
 ## Submission:
 
-1. Once completed, create a pull request (PR) to the boilerplate repository.
+1. Once completed, create a pull request (PR) to your repository
 2. Share the link to your forked repository and the PR for review.
 
 Good luck!
