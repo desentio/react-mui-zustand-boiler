@@ -1,8 +1,8 @@
-import './App.css'
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
-import HomePage from './pages/home'
-import BlogListPage from './pages/blog'
-import { Box } from '@mui/material'
+import "./App.css";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import HomePage from "./pages/home";
+import BlogListPage from "./pages/blog";
+import { Box } from "@mui/material";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </Box>
-  )
+  );
 }
 
-export default App
+export default App;
