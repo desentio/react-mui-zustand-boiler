@@ -10,5 +10,5 @@ export default defineConfig({
         { find: '@', replacement: path.resolve(__dirname, 'src') },
     ],
   },
-  // base: '/react-mui-zustand-boiler/'
+  base: '/react-mui-zustand-boiler/'
 })
