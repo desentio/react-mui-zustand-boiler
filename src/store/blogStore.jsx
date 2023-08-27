@@ -1,29 +1,75 @@
-import {produce} from 'immer'
+import { produce } from "immer";
+import axios from "axios";
+import { Operator } from "../constant/operator";
 
 const blogStore = (set, get, api) => ({
-  posts: null,
+  data: null,
+  operator: Operator,
+  textwert: null,
+  chip: [
+    {
+      parameter: "bulbasaur",
+      operator: "=",
+      textwert: "charizard",
+    },
+  ],
   isLoading: false,
-  currentPost: null,
+  updateChip: (index, newData) =>
+    set(
+      produce((draft) => {
+        draft.blogStore.chip[index] = newData;
+      })
+    ),
 
-  setLoading: (isLoading) => set(produce(draft => {
-    draft.blogStore.isLoading = isLoading
-  })),
+  setLoading: (isLoading) =>
+    set(
+      produce((draft) => {
+        draft.blogStore.isLoading = isLoading;
+      })
+    ),
 
-  setCurrentPost: (post) => set(produce(draft => {
-    // set single post here, either for view or edit
-  })),
+  setData: (newData) =>
+    set(
+      produce((draft) => {
+        draft.blogStore.data = newData;
+      })
+    ),
 
-  fetchPosts: async () => {
-    if (get().blogStore.isLoading) return
-    const apiUrl = get().staticStore.apiUrl
+  removeChip: (index) =>
+    set(
+      produce((draft) => {
+        draft.blogStore.chip.splice(index, 1); // Menghapus satu elemen berdasarkan index
+      })
+    ),
+
+  addEmptyChip: () =>
+    set(
+      produce((draft) => {
+        draft.blogStore.chip.push({
+          parameter: "",
+          operator: "",
+          textwert: "",
+        });
+      })
+    ),
+
+  fetchData: async () => {
+    if (get().blogStore.isLoading) return;
+    const apiUrl = get().staticStore.apiUrl;
 
     try {
-      get().blogStore.setLoading(true)
-    // fetch the posts here
+      get().blogStore.setLoading(true);
+
+      const response = await axios.get(apiUrl);
+      const data = response.data.results;
+
+      get().blogStore.setData(data);
     } catch (error) {
-    // handle error here using global snackbar
+      console.log(error);
+    } finally {
+      get().blogStore.setLoading(false);
     }
   },
-})
+});
 
-export default blogStore
+export default blogStore;
