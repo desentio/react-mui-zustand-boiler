@@ -1,0 +1,2 @@
+export const Description =
+  "I am an Frontend Developer at Haluan Rekadaya Konsultindo. I have made several applications as a fullstack web developer and fullstack mobile developer for my company which is used by more than 5000 employees at GMF Aeroasia, Develop ERP Apps as a Frontend Developer at Haluan Rekadaya Konsultindo . I am currently continuing my studies at BINUS university with a computer science study program. I am a persistent self-learning person with strong curiosity.";

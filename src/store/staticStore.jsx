@@ -1,6 +1,5 @@
 const staticStore = (set, get, api) => ({
-  apiUrl: "", // replace with your API URL
-  homeText: "Welcome to home",
-})
+  apiUrl: "https://pokeapi.co/api/v2/pokemon/",
+});
 
-export default staticStore
+export default staticStore;
