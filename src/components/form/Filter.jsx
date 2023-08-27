@@ -30,9 +30,9 @@ const FilterForm = (props) => {
             autoComplete="off"
           >
             <TextField 
-              onBlur = {(e) => {
+              onChange = {(e) => {
                 onBlurInput(e.target.value, "parameter")
-              }} size="small" id="parameter" label="Parameter" variant="outlined" />
+              }} value={props.data.parameter} size="small" id="parameter" label="Parameter" variant="outlined" />
             {/* <TextField
               onBlur = {(e) => {
                 onBlurInput(e.target.value, "operator")
@@ -42,7 +42,7 @@ const FilterForm = (props) => {
                 <Select
                   labelId="demo-simple-select-autowidth-label"
                   id="demo-simple-select-autowidth"
-                  value={operator}
+                  value={props.data.operator}
                   onChange={(e) => {
                     handleChange(e, "operator")
                   }}
@@ -58,9 +58,9 @@ const FilterForm = (props) => {
                 </Select>
               </FormControl>
             <TextField 
-              onBlur = {(e) => {
+              onChange = {(e) => {
                 onBlurInput(e.target.value, "text")
-              }} size="small" id="text" label="Text" variant="outlined" />
+              }} value={props.data.text} size="small" id="text" label="Text" variant="outlined" />
           </Box>
         
       </Grid>
