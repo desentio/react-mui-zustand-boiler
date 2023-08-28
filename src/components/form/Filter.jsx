@@ -37,11 +37,11 @@ const FilterForm = (props) => {
               onBlur = {(e) => {
                 onBlurInput(e.target.value, "operator")
               }} size="small" id="operator" label="Operator" variant="outlined" /> */}
-              <FormControl sx={{ m: 1, minWidth: 80 }}>
-                <InputLabel id="demo-simple-select-autowidth-label">Operator</InputLabel>
+              <FormControl sx={{ m: 1, minWidth: 80 }} size="small">
+                <InputLabel id="demo-select-small-label">Operator</InputLabel>
                 <Select
-                  labelId="demo-simple-select-autowidth-label"
-                  id="demo-simple-select-autowidth"
+                  labelId="demo-select-small-label"
+                  id="demo-select-small"
                   value={props.data.operator}
                   onChange={(e) => {
                     handleChange(e, "operator")

@@ -1,4 +1,4 @@
-import { Box, Button, Container, TextField } from "@mui/material";
+import { Box, Button, Container, Chip, Stack } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import useStore from "../store";
 import FilterForm from "@/components/form/Filter";
@@ -16,17 +16,22 @@ export default function HomePage() {
     removeDataFilter(idx)
   }
 
-
   if (!filters) return null;
   return (
-    <Container maxWidth="md" style={{"marginTop": "10vh", marginBottom: "10vh"}}>
+    <Container maxWidth="md" sx={{marginTop: "10vh", marginBottom: "10vh", border:"1px solid #e5e7eb", borderRadius:".2rem", padding:"1rem"}}>
       <Box>
-        {filters.map((filter, key) => (
-          <li key={key}>
-            <p>{`parameter: ${filter.parameter} | operator: ${filter.operator} | text: ${filter.text}`}</p>
-            <br/>
-          </li>
-        ))}
+        <Stack spacing={{ xs: 1, sm: 2 }} direction="row" useFlexGap flexWrap="wrap" style={{"marginBottom":"2rem", padding:".5rem"}}>
+          {filters.map((filter, idx) => {
+            return (
+                <Chip
+                  key={idx}
+                  variant="outlined"
+                  label={`parameter: ${filter.parameter} | operator: ${filter.operator} | text: ${filter.text}`}
+                  onDelete={() => removeFilter(idx)}
+                />
+            );
+          })}
+        </Stack>
       </Box>
 
       {filters.map((data, idx) => (
@@ -34,7 +39,7 @@ export default function HomePage() {
           <FilterForm data={data} idx={idx} handleRemoveFilter={removeFilter}/>
         </div>
       ))}
-      <Box style={{"paddingLeft":".5rem"}}>
+      <Box sx={{paddingLeft:".5rem", marginTop:"1rem"}}>
         <Button variant="outlined" endIcon={<AddIcon />} onClick={addFilter}>
           Add Filter
         </Button>
