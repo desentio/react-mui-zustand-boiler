@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes, BrowserRouter } from 'react-router-dom'
+import { Route, Routes, HashRouter } from 'react-router-dom'
 import HomePage from './pages/home'
 import BlogListPage from './pages/blog'
 import { Box } from '@mui/material'
@@ -7,12 +7,12 @@ import { Box } from '@mui/material'
 function App() {
   return (
     <Box>
-      <BrowserRouter>
+      <HashRouter basename='/'>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogListPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Box>
   )
 }
