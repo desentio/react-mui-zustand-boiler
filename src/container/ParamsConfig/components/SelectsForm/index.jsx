@@ -43,7 +43,7 @@ const SelectsForm = () => {
                 id="param"
                 value={item.param}
                 onChange={(e) => handleChangeForm(e, index)}
-                label="Age"
+                label="param"
               >
                 <MenuItem value="">
                   <em>param</em>
@@ -64,7 +64,7 @@ const SelectsForm = () => {
                 id="operator"
                 value={item.operator}
                 onChange={(e) => handleChangeForm(e, index)}
-                label="Age"
+                label="operator"
               >
                 <MenuItem value="">
                   <em>None</em>
@@ -85,7 +85,7 @@ const SelectsForm = () => {
                 id="text"
                 value={item.text}
                 onChange={(e) => handleChangeForm(e, index)}
-                label="Age"
+                label="text"
               >
                 <MenuItem value="">
                   <em>None</em>
